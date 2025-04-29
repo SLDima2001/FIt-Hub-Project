@@ -10,7 +10,6 @@ import contactusRoute from './routes/ContactusRoute.js';
 import bcrypt from "bcryptjs";
 import bodyParser from 'body-parser';
 import PaymentRoute from './routes/PaymentRoute.js'
-import OpenAI from 'openai';
 import dotenv from "dotenv";
 import axios from 'axios';
 
