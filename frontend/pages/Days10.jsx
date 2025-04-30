@@ -817,7 +817,7 @@ This day in Bentota offers a perfect blend of relaxation, adventure, and cultura
             top: '200px',
             right: '00px',
             backgroundColor: '#4682B4',
-            color: 'white',
+            color: 'black',
             border: 'none',
             padding: '10px 20px',
             cursor: 'pointer',
