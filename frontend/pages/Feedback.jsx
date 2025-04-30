@@ -135,11 +135,11 @@ const Feedback = ({ backgroundImageUrl }) => {
     loginButton: {
       marginLeft: '2000px',
       padding: '10px',
-      marginTop: '-100px',
+      marginTop: '-200px',
     },
     navbarStyle : {
       backgroundColor: '',
-      color: 'white',
+      color: 'black',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -161,7 +161,7 @@ const Feedback = ({ backgroundImageUrl }) => {
       justifyContent: 'space-between',
       alignItems: 'center',
       width: 'auto',
-      height: '120px',
+      height: '220px',
       padding: '10px 0px 0px  ',
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.3)',
       zIndex: '1000',
