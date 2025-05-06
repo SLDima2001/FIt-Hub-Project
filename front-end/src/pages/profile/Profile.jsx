@@ -12,7 +12,7 @@ import PlaceIcon from "@mui/icons-material/Place";
 import LanguageIcon from "@mui/icons-material/Language";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Posts from "../../components/posts/Posts"
+import ProfilePosts from "../../components/posts/ProfilePosts"
 import { DarkModeContext } from "./../../context/darkModeContext";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
@@ -110,7 +110,7 @@ const Profile = () => {
             <MoreVertIcon />
           </div>
         </div>
-      <Posts userName={userName}/>
+      <ProfilePosts userName={userName}/>
       </div>
     </div>
     </div>
