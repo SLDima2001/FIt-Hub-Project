@@ -13,7 +13,7 @@ const VideoComments = ({ postId, commenterName, setcomments, numberOfComments })
   useEffect(() => {
     const fetchProfilePhoto = async () => {
       try {
-        const response = await axios.get(`http://localhost:8080/profile-photos/${commenterName}`);
+        const response = await axios.get(`http://localhost:8080/profile-photo/${commenterName}`);
         setProfilePic(response.data);
       } catch (error) {
         console.error("Error fetching profile photo:", error);
