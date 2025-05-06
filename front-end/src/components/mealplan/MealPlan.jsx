@@ -66,7 +66,7 @@ const MealPlan = ({ meal, userName }) => {
   const updateRecipe = async (id, newDescription) => {
     try {
       const response = await axios.patch(
-        `http://localhost:8080/recipe/${id}/${newDescription}`
+        `http://localhost:8080/recipes/${id}/${newDescription}`
       );
       // alert("Meal recipe updated successfully!");
       return response.data;
