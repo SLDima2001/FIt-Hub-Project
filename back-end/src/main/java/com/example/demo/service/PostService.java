@@ -87,4 +87,9 @@ public class PostService {
             postRepository.save(post);
         }
     }
+
+    public PostDTO getPostById(int id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getPostById'");
+    }
 }

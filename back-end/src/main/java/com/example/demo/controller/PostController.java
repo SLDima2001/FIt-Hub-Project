@@ -35,6 +35,19 @@ public class PostController {
         }
     }
 
+
+    @GetMapping("/post/{id}")
+public ResponseEntity<PostDTO> getPostById(@PathVariable("id") int id) {
+    PostDTO postDTO = postService.getPostById(id);
+    if (postDTO != null) {
+        return ResponseEntity.ok(postDTO);
+    } else {
+        return ResponseEntity.notFound().build();
+    }
+}
+
+
+
     @PostMapping("setPost")
     public ResponseEntity<String> setPost(@RequestParam("userName") String userName,
                                           @RequestParam("post") MultipartFile image,
