@@ -50,6 +50,7 @@ const ShareVideo = ({ userName, profilePic }) => {
             // Handle success response
             console.log("Video posted successfully:", response.data);
             alert("Video posted successfully!");
+            window.location.reload();
         } catch (error) {
             // Handle error response
             console.error("Error posting video:", error);

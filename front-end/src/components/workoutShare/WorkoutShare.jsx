@@ -101,6 +101,7 @@ const WorkoutShare = ({ userName, profilePic }) => {
   
           console.log(response.data);
           alert("Workout report shared successfully!");
+          window.location.reload();
       } catch (error) {
           console.error("Error sharing workout report:", error);
           alert("Failed to share workout report. Please try again.");

@@ -92,6 +92,7 @@ const ShareWorkout = ({ userName, profilePic }) => {
                 }
     
                 console.log("Workout plan and exercises uploaded successfully.");
+                window.location.reload();
                 // Handle success response (e.g., notify user or clear form)
             } else {
                 console.error("Failed to upload workout description:", descriptionResponse.statusText);

@@ -13,6 +13,7 @@ const WorkoutStatus = ({ workoutReport, userName }) => {
         try {
             await axios.delete(`http://localhost:8080/api/exercise-duration/delete/${id}`);
             alert("Workout report deleted successfully!");
+            window.location.reload();
         } catch (error) {
             console.error('Error deleting report:', error);
             alert('Failed to delete report. Please try again.');
@@ -32,6 +33,7 @@ const WorkoutStatus = ({ workoutReport, userName }) => {
             );
             alert("Start time updated successfully!");
             return response.data;
+            window.location.reload();
         } catch (error) {
             console.error('Error updating :', error);
             alert('Failed to update . Please try again.');

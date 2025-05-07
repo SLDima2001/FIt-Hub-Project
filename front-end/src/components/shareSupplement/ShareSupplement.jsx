@@ -41,6 +41,7 @@ const ShareSupplement = ({ userName, profilePic }) => {
       });
       console.log(response.data); 
       alert("Supplement post successful!");
+      window.location.reload();
     } catch (error) {
       console.error("Error posting image:", error); // Handle error
       alert("Error in post uploading");

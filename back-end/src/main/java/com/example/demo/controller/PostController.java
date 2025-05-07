@@ -48,11 +48,12 @@ public ResponseEntity<PostDTO> getPostById(@PathVariable("id") int id) {
 
 
 
-    @PostMapping("setPost")
-    public ResponseEntity<String> setPost(@RequestParam("userName") String userName,
-                                          @RequestParam("post") MultipartFile image,
-                                          @RequestParam("description") String description){
-        try {
+@PostMapping("setPost")
+public ResponseEntity<String> setPost(@RequestParam("userName") String userName,
+                                      @RequestParam("postImages") MultipartFile[] images,
+                                      @RequestParam("description") String description) {
+    try {
+        for (MultipartFile image : images) {
             byte[] bytes = image.getBytes();
             Blob blobImage = new javax.sql.rowset.serial.SerialBlob(bytes);
 
@@ -60,12 +61,16 @@ public ResponseEntity<PostDTO> getPostById(@PathVariable("id") int id) {
             postEntity.setUserName(userName);
             postEntity.setPost(blobImage);
             postEntity.setDescription(description);
+
             postService.savePost(postEntity);
-            return ResponseEntity.ok().body("successfull");
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload");
         }
+
+        return ResponseEntity.ok().body("Successfully uploaded all images");
+    } catch (Exception e) {
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to upload");
     }
+}
+
 
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deletePost(@PathVariable("id") int id) {
