@@ -25,7 +25,7 @@ public class PostController {
     @Autowired
     private LikesService likesService;
 
-    @GetMapping("/allPost")
+    @GetMapping("/allPosts")
     public ResponseEntity<List<PostDTO>> allPosts() {
         List<PostDTO> postDTOList = postService.getAllPosts();
         if (postDTOList.isEmpty()) {
