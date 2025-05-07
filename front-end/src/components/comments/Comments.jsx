@@ -52,7 +52,7 @@ const Comments = ({ postId, commenterName, setcomments, numberOfComments }) => {
       setNewComment("");
       setcomments(numberOfComments+1);
       console.log(response.data); // Handle success response
-      alert("Post Added SuccessFully");
+      alert("Post Added SuccessFully.");
       
     } catch (error) {
       console.error("Error commenting:", error);
