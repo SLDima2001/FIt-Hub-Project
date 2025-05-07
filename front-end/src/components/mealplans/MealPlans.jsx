@@ -24,7 +24,7 @@ const MealPlans = ({ userName }) => {
 
   useEffect(() => {
     // Log the updated state each time the component re-renders
-    console.log('Updated mealPlans  after setMealPlans call:', mealPlans);
+    console.log('Updated mealPlans state after setMealPlans call:', mealPlans);
   });
 
   return (
