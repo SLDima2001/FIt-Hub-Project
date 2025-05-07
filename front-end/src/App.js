@@ -23,7 +23,7 @@ function App() {
           <Route path="/mealPlanes/:userName" element={<MealPlansPage />} />
           <Route path="/workoutPlans/:userName" element={<WorkoutPlanPage />} />
           <Route path="/supplements/:userName" element={<SupplementPage />} />
-          <Route path="/video/:userName" element={<VideosPage />} />
+          <Route path="/videos/:userName" element={<VideosPage />} />
           <Route path="/currentWorkoutStatus/:userName" element={<WorkoutStatusPage />} />
           <Route path="/profile/:userName/:profileUser" element={<Profile />} />
           <Route path="/messages/:userName" element={<Messages />} />
