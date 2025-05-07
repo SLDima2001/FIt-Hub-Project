@@ -72,6 +72,7 @@ const Video = ({ video, userName }) => {
         try {
             const response = await axios.delete(`http://localhost:8080/api/videos/delete/${id}`);
             alert("Video deleted successfully!");
+            window.location.reload();
         } catch (error) {
             console.error('Error deleting post:', error);
             alert('Failed to delete post. Please try again.');
@@ -85,6 +86,7 @@ const Video = ({ video, userName }) => {
             );
             alert("Video description updated successfully!");
             return response.data;
+            window.location.reload();
         } catch (error) {
             console.error('Error updating description:', error);
             alert('Failed to update description. Please try again.');

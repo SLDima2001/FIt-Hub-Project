@@ -52,6 +52,7 @@ const SupplementComment = ({ postId, commenterName }) => {
     try {
       const response = await axios.get(`http://localhost:8080/profile-photo/${commenterName}`);
       setProfilePic(response.data);
+      window.location.reload();
     } catch (error) {
       console.error("Error fetching profile photo:", error);
       // Display a user-friendly error message
