@@ -67,7 +67,7 @@ public ResponseEntity<PostDTO> getPostById(@PathVariable("id") int id) {
         }
     }
 
-    @DeleteMapping("edit/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<Void> deletePost(@PathVariable("id") int id) {
         postService.deletePost(id);
         return ResponseEntity.noContent().build();
