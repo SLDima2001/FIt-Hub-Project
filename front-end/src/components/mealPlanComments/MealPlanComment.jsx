@@ -59,7 +59,7 @@ const MealPlanComments = ({ postId, commenterName }) => {
                 <img src={`data:image/jpeg;base64,${profilePic}`} alt="Profile" />
                 <input
                     type="text"
-                    placeholder="write a comment"
+                    placeholder="write a comment..."
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
                 />
