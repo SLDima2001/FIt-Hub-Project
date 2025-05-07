@@ -13,7 +13,7 @@ const MealPlanComments = ({ postId, commenterName }) => {
             formData.append("mealPlanId", postId);
             formData.append("commenterName", commenterName);
             formData.append("comment", newComment);
-            const response = await axios.post("http://localhost:8080/mealPlanComments/saveComment/", formData, {
+            const response = await axios.post("http://localhost:8080/mealPlanComments/saveComment", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
