@@ -4,31 +4,46 @@ import "./share.scss";
 import Image from "../../assets/img.png";
 
 const Share = ({ userName, profilePic }) => {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [previewImage, setPreviewImage] = useState(null);
+  const [selectedImages, setSelectedImages] = useState([]); // Changed to an array
+  const [previewImages, setPreviewImages] = useState([]); // Changed to an array
   const [description, setDescription] = useState("");
 
   const handleImageChange = (event) => {
-    setSelectedImage(event.target.files[0]);
-    setPreviewImage(URL.createObjectURL(event.target.files[0]));
+    const files = event.target.files;
+    if (files.length + selectedImages.length <= 3) { // Check if the total number of images doesn't exceed 3
+      const newImages = [...selectedImages];
+      const newPreviewImages = [...previewImages];
+      
+      for (let i = 0; i < files.length; i++) {
+        newImages.push(files[i]);
+        newPreviewImages.push(URL.createObjectURL(files[i]));
+      }
+      
+      setSelectedImages(newImages);
+      setPreviewImages(newPreviewImages);
+    } else {
+      alert("You can only upload up to 3 images.");
+    }
   };
 
   const handlePost = async () => {
     try {
       const formData = new FormData();
       formData.append("userName", userName);
-      formData.append("post", selectedImage);
-      formData.append("description", description);     
+      selectedImages.forEach((image, index) => {
+        formData.append("postImages", image); // Append each image with a unique key
+      });
+      formData.append("description", description);
+      
       const response = await axios.post("http://localhost:8080/setPost", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
       console.log(response.data); // Handle success response
-      alert("post successful");
-      
+      alert("Post successful");
     } catch (error) {
-      console.error("Error posting image:", error); // Handle error
+      console.error("Error posting images:", error); // Handle error
       alert("Unable to post");
     }
     window.location.reload();
@@ -42,23 +57,26 @@ const Share = ({ userName, profilePic }) => {
           <input
             type="text"
             placeholder={`What's on your mind ${userName}?`}
-            value={description} // Bind value of input field to postText state
+            value={description} // Bind value of input field to description state
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
         <hr />
-        {previewImage && (
-          <img
-            src={previewImage}
-            alt="SelectImage"
-            style={{
-              maxWidth: "100%",
-              maxHeight: "500px",
-              objectFit: "cover",
-              marginTop: "20px"
-            }}
-          />
-        )}
+        <div className="image-previews">
+          {previewImages.map((preview, index) => (
+            <img
+              key={index}
+              src={preview}
+              alt={`Preview ${index}`}
+              style={{
+                maxWidth: "100%",
+                maxHeight: "auto",
+                objectFit: "cover",
+                marginTop: "20px"
+              }}
+            />
+          ))}
+        </div>
         <div className="bottom">
           <div className="left">
             <input
@@ -66,11 +84,12 @@ const Share = ({ userName, profilePic }) => {
               id="file"
               style={{ display: "none" }}
               onChange={handleImageChange}
+              multiple // Allow multiple file selection
             />
             <label htmlFor="file">
               <div className="item">
                 <img src={Image} alt="" />
-                <span>Add Image</span>
+                <span>Add Images</span>
               </div>
             </label>
           </div>
