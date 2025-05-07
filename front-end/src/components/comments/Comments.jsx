@@ -44,7 +44,7 @@ const Comments = ({ postId, commenterName, setcomments, numberOfComments }) => {
       formData.append("pictureId", postId);
       formData.append("commenterName", commenterName);
       formData.append("comment", newComment);
-      const response = await axios.post("http://localhost:8080/comments/saveComment/", formData, {
+      const response = await axios.post("http://localhost:8080/comments/saveComment", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
