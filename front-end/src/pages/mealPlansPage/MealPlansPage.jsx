@@ -22,7 +22,7 @@ function MealPlansPage() {
         );
         setProfilePic(response.data);
       } catch (error) {
-        console.error("Error  profile photo:", error);
+        console.error("Error fetching profile photo:", error);
       }
     };
 
