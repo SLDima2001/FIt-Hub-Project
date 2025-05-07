@@ -44,7 +44,7 @@ const VideoComments = ({ postId, commenterName, setcomments, numberOfComments })
       formData.append("videoId", postId);
       formData.append("commenterName", commenterName);
       formData.append("comment", newComment);
-      const response = await axios.post("http://localhost:8080/VideoComments/saveComment", formData, {
+      const response = await axios.post("http://localhost:8080/VideoComments/saveComment/", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
